@@ -1,0 +1,88 @@
+name: Bug Report 🐛
+description: Report an inconsistency, error, or unclear rule in the DocScript spec, examples, or tooling.
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the sections below as completely as you can.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug or inconsistency is.
+      placeholder: What did you expect to happen, and what actually happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: snippet
+    attributes:
+      label: DocScript snippet
+      description: If applicable, paste the DocScript snippet that reproduces the issue.
+      render: text
+      placeholder: |
+        c(Order)f(checkout)->map-...
+    validations:
+      required: false
+
+  - type: input
+    id: spec-section
+    attributes:
+      label: Related spec section
+      description: If this relates to a specific rule, which section of SPEC.md does it involve? (e.g. "5.1 Referring to a Specific Parameter")
+      placeholder: "e.g. 11.1 Rule: Parameters End the Chain"
+    validations:
+      required: false
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect the spec, example, or tool to say or do instead?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Where does this bug live?
+      multiple: true
+      options:
+        - SPEC.md (English)
+        - README
+        - Examples
+        - Validator / tooling
+        - Documentation site (MkDocs)
+        - Other
+    validations:
+      required: false
+
+  - type: input
+    id: version
+    attributes:
+      label: DocScript spec version
+      description: Which version of the spec are you referring to? (see the front matter at the top of SPEC.md)
+      placeholder: "e.g. 0.3"
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Anything else that might help — screenshots, links, related issues, etc.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and this hasn't already been reported.
+          required: false
+        - label: I checked the latest version of SPEC.md before reporting.
+          required: false

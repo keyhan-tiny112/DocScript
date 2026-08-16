@@ -1,7 +1,7 @@
 # Example: Shopping Cart API
 
 Describes a shopping cart and order service (add item / checkout / payment / shipping) using DocScript.
-This example exercises additional grammar rules from [`Spec`](../SPEc.md) not covered in the [Auth API example](./auth-api.md): loops over collections, chained composition across multiple objects, multi-level nesting with the indent form, and repeated error scenarios on the same method.
+This example exercises additional grammar rules from [`Spec`](../SPEC.md) not covered in the [Auth API example](./auth-api.md): loops over collections, chained composition across multiple objects, multi-level nesting with the indent form, and repeated error scenarios on the same method.
 
 ```
 c(Cart)(user:User)-creates a new empty cart for a user

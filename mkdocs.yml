@@ -9,7 +9,6 @@ docs_dir: ./Docs
 theme:
   name: material
   language: en
-  direction: rtl
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
