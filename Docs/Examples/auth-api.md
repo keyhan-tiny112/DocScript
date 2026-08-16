@@ -7,6 +7,7 @@ This example applies most of the syntax rules defined in [`SPEC.md`](../SPEC.md)
 c(AuthService)(secret_key:str, token_ttl:int)-creates a new auth service with a signing secret and a token lifetime
 
 c(AuthService)f(login)(username:str, password:str)->Token-authenticates a user and returns an access token
+# full document in example.com
 c(AuthService)f(login)!-raises InvalidCredentials if the username or password is wrong
 
 c(AuthService)f(login)v(user)->User-the authenticated user object once login succeeds
@@ -37,3 +38,4 @@ while use f(server_running) -> c(AuthService)f(cleanup_expired_tokens)-removes e
 - `c(AuthService)f(login)v(user)` is an example of the composition/output relationship in a chain (section 3.1 in SPEC): after calling `login`, the `user` value becomes available.
 - The nested `if` block near the beginning of the example uses the indent-based form because it has more than one level of nesting (section 7.2 in SPEC).
 - Two separate `!-` scenarios are written for `f(refresh)`, following the "one `!-` per statement" limitation (section 8.1 in SPEC).
+- `# full document in example.com` adout comment(`#`) in [Spec](../SPEC.md), ['Comments'](../SPEC.md#2-comments) section.

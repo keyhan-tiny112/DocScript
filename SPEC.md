@@ -2,7 +2,7 @@
 Version: 0.3
 Status: Stable Draft
 ---
-# DocScript Language Specification
+# DocScript Specification
 
 This document defines the formal syntax and semantic rules of the DocScript documentation language.
 

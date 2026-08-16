@@ -5,6 +5,7 @@ This example exercises additional grammar rules from [`Spec`](../SPEC.md) not co
 
 ```
 c(Cart)(user:User)-creates a new empty cart for a user
+c(Cart)p(user)->User-detials of user
 
 c(Cart)f(add_item)(product:Product, quantity:int)->bool-adds a product to the cart
 c(Cart)f(add_item)!-raises OutOfStock if the requested quantity is unavailable
@@ -47,3 +48,4 @@ while use f(order_pending) -> c(Shipment)f(track)-poll tracking status until del
 - `c(Order)f(checkout)v(payment)` is another example of the composition/output relationship in a chain (Spec Section 3.1): after `checkout` succeeds, a `payment` value becomes available.
 - `c(Payment)f(charge)` has two separate `!-` scenarios, each written as its own statement, per the "one `!-` per statement" constraint (Spec Section 8.1).
 - `c(Order)f(checkout)()` shows an empty parameter list — the method takes no arguments but is still marked as the final target of the chain (Spec Section 10.1).
+- `c(Cart)p(user)->User-detials of user` about of `p(...)` in [Spec](../SPEC.md), ['Referring to a Specific Parameter'](../SPEC.md#51-referring-to-a-specific-parameter) and ['Constraint: `p()` Cannot Take Its Own Parameters'](../SPEC.md#52-constraint-p-cannot-take-its-own-parameters) section.
