@@ -1,0 +1,1524 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A lightweight, code-like standard for writing documentation.">
+      
+      
+      
+        <link rel="canonical" href="https://keyhan-tiny112.github.io/DocScript/SPEC/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../Examples/auth-api/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Spec - DocScript Document</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#docscript-specification" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="DocScript Document" class="md-header__button md-logo" aria-label="DocScript Document" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DocScript Document
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Spec
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/keyhan-tiny112/DocScript" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    DocScript Github Page
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DocScript Document" class="md-nav__button md-logo" aria-label="DocScript Document" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    DocScript Document
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/keyhan-tiny112/DocScript" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    DocScript Github Page
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spec
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spec
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introduction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-what-docscript-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 What DocScript Is
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Design Principles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Comments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Comments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-core-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Core Objects
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-object-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Object Chain
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Object Chain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-uses-of-a-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Uses of a Chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-description-output-and-their-combination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Description, Output, and Their Combination
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Description, Output, and Their Combination">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-referring-to-a-specific-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Referring to a Specific Parameter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-constraint-p-cannot-take-its-own-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Constraint: p() Cannot Take Its Own Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-control-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Control Structures
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-nesting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Nesting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Nesting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-inline-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Inline Form
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-indent-based-block-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Indent-Based Block Form
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-error-side-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Error &amp; Side Effect
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Error &amp; Side Effect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-limitation-one-per-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Limitation: One !- per Statement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-async" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Async
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-rule-parameters-end-the-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 Rule: Parameters End the Chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-constraint-v-cannot-take-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 Constraint: v() Cannot Take Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-complete-grammar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Complete Grammar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-validator-implementation-guide-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Validator Implementation Guide (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Examples
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Examples/auth-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Auth API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introduction
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-what-docscript-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 What DocScript Is
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-design-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Design Principles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Comments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Comments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Rules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-core-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Core Objects
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-object-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Object Chain
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Object Chain">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-uses-of-a-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Uses of a Chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-description-output-and-their-combination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Description, Output, and Their Combination
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Description, Output, and Their Combination">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-referring-to-a-specific-parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Referring to a Specific Parameter
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-constraint-p-cannot-take-its-own-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Constraint: p() Cannot Take Its Own Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-control-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Control Structures
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-nesting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Nesting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Nesting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-inline-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 Inline Form
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-indent-based-block-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 Indent-Based Block Form
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-error-side-effect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Error &amp; Side Effect
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Error &amp; Side Effect">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-limitation-one-per-statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1 Limitation: One !- per Statement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-async" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Async
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-rule-parameters-end-the-chain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.1 Rule: Parameters End the Chain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-constraint-v-cannot-take-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11.2 Constraint: v() Cannot Take Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-complete-grammar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Complete Grammar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-validator-implementation-guide-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. Validator Implementation Guide (Optional)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="docscript-specification">DocScript Specification<a class="headerlink" href="#docscript-specification" title="Permanent link">&para;</a></h1>
+<p>This document defines the formal syntax and semantic rules of the DocScript documentation language.</p>
+<hr />
+<h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">&para;</a></h2>
+<h3 id="11-what-docscript-is">1.1 What DocScript Is<a class="headerlink" href="#11-what-docscript-is" title="Permanent link">&para;</a></h3>
+<p>DocScript is a <strong>pseudocode-style documentation language</strong>. Its goal is to describe the structure, behavior, input/output, and error conditions of a software system using syntax that visually resembles code.</p>
+<h3 id="12-design-principles">1.2 Design Principles<a class="headerlink" href="#12-design-principles" title="Permanent link">&para;</a></h3>
+<ul>
+<li>DocScript <strong>is not an executable language.</strong> No compiler or interpreter is required for it.</li>
+<li>DocScript is <strong>programming-language independent</strong>; it can be used to document code written in any language.</li>
+<li>Each line or block is considered an independent <strong>statement</strong>, unless it is combined using nesting notation (section 8).</li>
+<li>This document defines the syntax using pseudo-EBNF notation. Implementing an official parser or Validator is optional; section 13 provides guidance for implementing such a tool.</li>
+</ul>
+<hr />
+<h2 id="2-comments">2. Comments<a class="headerlink" href="#2-comments" title="Permanent link">&para;</a></h2>
+<p>DocScript supports single-line comments, used to annotate a DocScript document without the annotation being treated as part of the language's syntax.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">comment </span><span class="err">::</span><span class="o">=</span> <span class="s2">&quot;#&quot;</span> <span class="p">{</span> <span class="k">any_char_except_newline </span><span class="p">}</span>
+</code></pre></div>
+<h3 id="21-rules">2.1 Rules<a class="headerlink" href="#21-rules" title="Permanent link">&para;</a></h3>
+<ul>
+<li>A comment starts with <code>#</code> and extends to the end of the line.</li>
+<li>A comment may appear alone on its own line, or after a statement on the same line (a <strong>trailing comment</strong>).</li>
+<li>A comment carries no syntactic meaning. It is not part of any chain, description, output, or control structure, and must be discarded before a statement is processed (see the parsing order in section 13).</li>
+<li>Comments do not nest, and there is no multi-line or block comment form. Each <code>#</code> only affects the remainder of that single line.</li>
+<li>Everything between <code>#</code> and the end of the line is free-form text; no DocScript syntax inside a comment is interpreted.</li>
+</ul>
+<h3 id="22-examples">2.2 Examples<a class="headerlink" href="#22-examples" title="Permanent link">&para;</a></h3>
+<p>A comment on its own line:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># schema in example.org
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>c(Order)f(checkout)-&gt;map
+</code></pre></div>
+<p>A trailing comment after a statement:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>c(Order)f(checkout)-&gt;map    # schema in example.org
+</code></pre></div>
+<p>A comment used as an inline note before a more complex statement:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># TODO: document the retry behavior of this method
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>async c(Payment)f(charge)(amount:float, method:PaymentMethod)-&gt;bool-charges the customer asynchronously
+</code></pre></div>
+<hr />
+<h2 id="3-core-objects">3. Core Objects<a class="headerlink" href="#3-core-objects" title="Permanent link">&para;</a></h2>
+<p>DocScript has four core object types: function, class, variable, and parameter reference.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">object      </span><span class="err">::</span><span class="o">=</span> <span class="k">function </span><span class="p">|</span> <span class="k">class </span><span class="p">|</span> <span class="k">variable </span><span class="p">|</span> <span class="k">param_ref</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">function    </span><span class="err">::=</span> <span class="s2">&quot;f(&quot;</span> <span class="k">identifier </span><span class="s2">&quot;)&quot;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">class       </span><span class="err">::=</span> <span class="s2">&quot;c(&quot;</span> <span class="k">identifier </span><span class="s2">&quot;)&quot;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">variable    </span><span class="err">::=</span> <span class="s2">&quot;v(&quot;</span> <span class="k">identifier </span><span class="s2">&quot;)&quot;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="k">param_ref   </span><span class="err">::=</span> <span class="s2">&quot;p(&quot;</span> <span class="k">identifier </span><span class="s2">&quot;)&quot;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">identifier  </span><span class="err">::=</span> <span class="k">letter </span><span class="p">{</span> <span class="k">letter </span><span class="p">|</span> <span class="k">digit </span><span class="p">|</span> <span class="s2">&quot;_&quot;</span> <span class="p">}</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>f(name)</code></td>
+<td>function</td>
+</tr>
+<tr>
+<td><code>c(name)</code></td>
+<td>class</td>
+</tr>
+<tr>
+<td><code>v(name)</code></td>
+<td>variable</td>
+</tr>
+<tr>
+<td><code>p(name)</code></td>
+<td>parameter reference (see section 5.1)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-object-chain">4. Object Chain<a class="headerlink" href="#4-object-chain" title="Permanent link">&para;</a></h2>
+<p>Any object may be followed by one or more other objects to form a <strong>chain</strong>. A chain represents a nested path, such as a namespace path; the final member of the chain is the primary target of the description or operation.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">chain </span><span class="err">::</span><span class="o">=</span> <span class="k">object </span><span class="p">{</span> <span class="k">object </span><span class="p">}</span>
+</code></pre></div>
+<h3 id="41-uses-of-a-chain">4.1 Uses of a Chain<a class="headerlink" href="#41-uses-of-a-chain" title="Permanent link">&para;</a></h3>
+<p>A chain can represent three different semantic relationships between two adjacent members:</p>
+<p><strong>Membership:</strong> When the earlier member is a class, the later member belongs to it.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>c(App)c(Router)f(add_get)
+</code></pre></div>
+<p>This means <code>add_get</code> belongs to <code>Router</code>, which itself belongs to <code>App</code>.</p>
+<p><strong>Composition/Output:</strong> When the earlier member is a function or variable, the later member is considered an output or related value.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>f(login)v(user)
+</code></pre></div>
+<p>This means that after calling <code>login</code>, a value named <code>user</code> is available.</p>
+<p><strong>Parameter Elaboration:</strong> When the later member is a <code>p()</code> parameter reference (section 5.1), it refers to a parameter already declared on the earlier member, regardless of the earlier member's type.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>c(Order)p(user)
+</code></pre></div>
+<p>This means <code>user</code> refers to a parameter of <code>Order</code> (i.e., of its constructor), not a member or an output of it.</p>
+<blockquote>
+<p><strong>Rule:</strong> The relationship between two adjacent members is determined in the following order:
+1. If the later member is a <code>p()</code>, the relationship is <strong>Parameter Elaboration</strong>. This check takes precedence over the earlier member's type.
+2. Otherwise, if the earlier member is of type <code>c()</code>, the relationship is <strong>Membership</strong>.
+3. Otherwise (the earlier member is <code>f()</code> or <code>v()</code>), the relationship is <strong>Composition/Output</strong>.</p>
+<p>This rule is applied locally to each adjacent pair in a chain, not once for the chain as a whole; a single chain may combine more than one relationship type across its members.</p>
+</blockquote>
+<hr />
+<h2 id="5-description-output-and-their-combination">5. Description, Output, and Their Combination<a class="headerlink" href="#5-description-output-and-their-combination" title="Permanent link">&para;</a></h2>
+<p>There are three operators for attaching information to a chain: description (<code>-</code>), output (<code>-&gt;</code>), and error/side effect (<code>!-</code>).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">description   </span><span class="err">::</span><span class="o">=</span> <span class="k">chain </span><span class="s2">&quot;-&quot;</span> <span class="k">text</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">output        </span><span class="err">::=</span> <span class="k">chain </span><span class="s2">&quot;-&gt;&quot;</span> <span class="k">type</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="k">output_desc   </span><span class="err">::=</span> <span class="k">chain </span><span class="s2">&quot;-&gt;&quot;</span> <span class="k">type </span><span class="s2">&quot;-&quot;</span> <span class="k">text</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="k">error_desc    </span><span class="err">::=</span> <span class="k">chain </span><span class="s2">&quot;!-&quot;</span> <span class="k">text</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>chain-text</code></td>
+<td>simple description</td>
+</tr>
+<tr>
+<td><code>chain-&gt;type</code></td>
+<td>output type</td>
+</tr>
+<tr>
+<td><code>chain-&gt;type-text</code></td>
+<td>output type with description</td>
+</tr>
+<tr>
+<td><code>chain!-text</code></td>
+<td>error or side effect (section 9)</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>f(foo)-a simple example function
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>f(foo)-&gt;str
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>f(foo)-&gt;str-a simple example function
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>c(Router)!-shuts down the visual server and exits
+</code></pre></div>
+<blockquote>
+<p><strong>Detection rule (for Validators):</strong> The <code>-&gt;</code> operator must be searched for before an independent <code>-</code>; in other words, a line should first be checked for the <code>-&gt;</code> pattern, then for a <code>-</code> that is not immediately preceded by <code>&gt;</code>.</p>
+</blockquote>
+<h3 id="51-referring-to-a-specific-parameter">5.1 Referring to a Specific Parameter<a class="headerlink" href="#51-referring-to-a-specific-parameter" title="Permanent link">&para;</a></h3>
+<p>Sometimes a chain needs to describe not the object itself, but <strong>one specific parameter</strong> belonging to it — for example, to give a fuller explanation or a distinct output type for a single argument, beyond what fits inside the compact <code>params</code> list defined in section 11.</p>
+<p>For this, DocScript defines the <strong>parameter reference</strong>, <code>p(name)</code>, introduced as a fourth core object type in section 3:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">param_ref </span><span class="err">::</span><span class="o">=</span> <span class="s2">&quot;p(&quot;</span> <span class="k">identifier </span><span class="s2">&quot;)&quot;</span>
+</code></pre></div>
+<p>A <code>p(name)</code> behaves like <code>f()</code>, <code>c()</code>, and <code>v()</code> in one respect: it can appear as a member of a chain, and it supports the same description, output, output-with-description, and error/side-effect operators defined earlier in this section. When <code>p()</code> follows another object in a chain, the relationship between them is always <strong>Parameter Elaboration</strong> (section 4.1), regardless of whether the preceding object is a class, function, or variable.</p>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>c(Order)p(user)-&gt;User-details of the user who placed the order
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>c(Order)p(user)-the user object associated with this order
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>f(add_get)p(handler)!-raises TypeError if handler is not callable
+</code></pre></div>
+<blockquote>
+<p><strong>Note:</strong> <code>p()</code> is used to elaborate on a parameter that has already been declared elsewhere — typically inside the <code>params</code> list of the object it belongs to (section 11) — not to declare a new parameter by itself. It is a way to attach a longer description, an output type, or an error/side-effect condition to something that already exists as a parameter.</p>
+</blockquote>
+<h3 id="52-constraint-p-cannot-take-its-own-parameters">5.2 Constraint: <code>p()</code> Cannot Take Its Own Parameters<a class="headerlink" href="#52-constraint-p-cannot-take-its-own-parameters" title="Permanent link">&para;</a></h3>
+<p>Unlike <code>f()</code> and <code>c()</code>, a <code>p()</code> reference can never be followed by its own <code>params</code> list (section 11). Since <code>p()</code> only refers to a parameter that has already been declared elsewhere, giving it a parameter list of its own has no meaning.</p>
+<p><strong>Correct:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>c(Order)p(user)-&gt;User-details of the user who placed the order
+</code></pre></div>
+<p><strong>Incorrect:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>c(Order)p(user)(role:str)-&gt;User-details of the user who placed the order
+</code></pre></div>
+<p>This constraint applies wherever <code>p()</code> appears in a chain, including as the final member. <code>v()</code> is subject to the same constraint, for the same reason; see section 11.2.</p>
+<hr />
+<h2 id="6-types">6. Types<a class="headerlink" href="#6-types" title="Permanent link">&para;</a></h2>
+<p>The type system in DocScript is open; any identifier can be used as a type.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">type </span><span class="err">::</span><span class="o">=</span> <span class="k">identifier </span><span class="p">[</span> <span class="s2">&quot;(&quot;</span> <span class="k">type </span><span class="p">{</span><span class="s2">&quot;,&quot;</span> <span class="k">type</span><span class="p">}</span> <span class="s2">&quot;)&quot;</span> <span class="p">]</span>
+</code></pre></div>
+<p>Examples: <code>str</code>, <code>int</code>, <code>Router</code>, <code>list(str)</code>, <code>dict(str, int)</code>, <code>optional(User)</code></p>
+<hr />
+<h2 id="7-control-structures">7. Control Structures<a class="headerlink" href="#7-control-structures" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">if_stmt     </span><span class="err">::</span><span class="o">=</span> <span class="s2">&quot;if&quot;</span> <span class="k">condition </span><span class="s2">&quot;-&gt;&quot;</span> <span class="k">body</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">for_stmt    </span><span class="err">::=</span> <span class="s2">&quot;for&quot;</span> <span class="k">identifier </span><span class="s2">&quot;in&quot;</span> <span class="k">iterable </span><span class="s2">&quot;-&gt;&quot;</span> <span class="k">body</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="k">while_stmt  </span><span class="err">::=</span> <span class="s2">&quot;while&quot;</span> <span class="k">condition </span><span class="s2">&quot;-&gt;&quot;</span> <span class="k">body</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="k">use_stmt    </span><span class="err">::=</span> <span class="s2">&quot;use&quot;</span> <span class="k">chain</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="k">ret_stmt    </span><span class="err">::=</span> <span class="s2">&quot;ret&quot;</span> <span class="k">chain</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="k">condition   </span><span class="err">::=</span> <span class="k">use_stmt </span><span class="p">|</span> <span class="k">expression</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="k">body        </span><span class="err">::=</span> <span class="k">text </span><span class="p">|</span> <span class="k">statement</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="k">statement   </span><span class="err">::=</span> <span class="k">if_stmt </span><span class="p">|</span> <span class="k">for_stmt </span><span class="p">|</span> <span class="k">while_stmt </span><span class="p">|</span> <span class="k">use_stmt </span><span class="p">|</span> <span class="k">ret_stmt</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>              <span class="p">|</span> <span class="k">description </span><span class="p">|</span> <span class="k">output </span><span class="p">|</span> <span class="k">output_desc </span><span class="p">|</span> <span class="k">error_desc</span>
+</code></pre></div>
+<p>The <code>body</code> of a control structure may be free-form text or another formal statement, including a nested control structure.</p>
+<p><code>ret</code> marks the value returned by the enclosing description — typically the last statement inside an <code>if</code>/<code>for</code>/<code>while</code> body, or the final line of a chain of nested conditions. Its operand is a <code>chain</code>, most often a single <code>v()</code> or the result of a <code>use</code> expression.</p>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>if use c(Router)f(close) -&gt; close all open routes
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>if use f(login) -&gt; if use f(getUser) -&gt; ret v(user)
+</code></pre></div>
+<hr />
+<h2 id="8-nesting">8. Nesting<a class="headerlink" href="#8-nesting" title="Permanent link">&para;</a></h2>
+<p>Control structures can be written in two forms:</p>
+<h3 id="81-inline-form">8.1 Inline Form<a class="headerlink" href="#81-inline-form" title="Permanent link">&para;</a></h3>
+<p>Suitable for shallow nesting, usually one or two levels:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>if use f(login) -&gt; if use f(getUser) -&gt; ret v(user)
+</code></pre></div>
+<h3 id="82-indent-based-block-form">8.2 Indent-Based Block Form<a class="headerlink" href="#82-indent-based-block-form" title="Permanent link">&para;</a></h3>
+<p>Suitable for deeper nesting or higher readability:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>if use f(login) -&gt;
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    if use f(getUser) -&gt;
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>        ret v(user)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">body </span><span class="err">::</span><span class="o">=</span> <span class="k">text </span><span class="p">|</span> <span class="k">statement </span><span class="p">|</span> <span class="k">NEWLINE INDENT statement DEDENT</span>
+</code></pre></div>
+<blockquote>
+<p><strong>Style guide:</strong> For bodies with more than one level of nesting, the indented form is recommended. This is a style rule, not a grammar restriction.</p>
+</blockquote>
+<p>A comment-only line (section 2) may appear anywhere inside an indented block, on its own line and at any indentation level. It does not count as the <code>statement</code> the block requires, and it does not affect indentation tracking.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>if use f(login) -&gt;
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>    # verify credentials before issuing a token
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>    if use f(getUser) -&gt;
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>        ret v(user)
+</code></pre></div>
+<hr />
+<h2 id="9-error-side-effect">9. Error &amp; Side Effect<a class="headerlink" href="#9-error-side-effect" title="Permanent link">&para;</a></h2>
+<p>The <code>!-</code> symbol is used both to describe behavior under error conditions and to describe automatic side effects.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">error_desc </span><span class="err">::</span><span class="o">=</span> <span class="k">chain </span><span class="s2">&quot;!-&quot;</span> <span class="k">text</span>
+</code></pre></div>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>c(Router)!-shuts down the visual server and exits
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>f(connect)!-raises ConnectionError if the host is unreachable
+</code></pre></div>
+<h3 id="91-limitation-one-per-statement">9.1 Limitation: One <code>!-</code> per Statement<a class="headerlink" href="#91-limitation-one-per-statement" title="Permanent link">&para;</a></h3>
+<p>Each statement may contain only one <code>error_desc</code>. If an object has multiple error or side-effect scenarios, each scenario must be written as a separate statement, on a separate line.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">statement </span><span class="err">::</span><span class="o">=</span> <span class="p">.</span><span class="err">..</span> <span class="err">|</span> <span class="k">error_desc     </span><span class="err">;</span> <span class="k">at most one error_desc per statement</span>
+</code></pre></div>
+<p><strong>Correct:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>c(AuthService)f(refresh)!-raises TokenExpired if refresh_token has expired
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>c(AuthService)f(refresh)!-shuts down the current session and requires re-login
+</code></pre></div>
+<p><strong>Incorrect:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>c(AuthService)f(refresh)!-raises TokenExpired if refresh_token has expired!-shuts down the current session and requires re-login
+</code></pre></div>
+<hr />
+<h2 id="10-async">10. Async<a class="headerlink" href="#10-async" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="k">async_marker </span><span class="err">::</span><span class="o">=</span> <span class="s2">&quot;async&quot;</span> <span class="k">chain</span>
+</code></pre></div>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>async f(fetch)-fetches a resource asynchronously
+</code></pre></div>
+<hr />
+<h2 id="11-parameters">11. Parameters<a class="headerlink" href="#11-parameters" title="Permanent link">&para;</a></h2>
+<p>Parameters of a function or class are written immediately after it, inside a separate pair of parentheses. <code>v()</code> and <code>p()</code> do not take a <code>params</code> list of their own (section 11.2).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="k">params      </span><span class="err">::</span><span class="o">=</span> <span class="s2">&quot;(&quot;</span> <span class="p">[</span><span class="k">param </span><span class="p">{</span><span class="s2">&quot;,&quot;</span> <span class="k">param</span><span class="p">}]</span> <span class="s2">&quot;)&quot;</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="k">param       </span><span class="err">::=</span> <span class="k">identifier </span><span class="s2">&quot;:&quot;</span> <span class="k">type</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="k">chain_head  </span><span class="err">::=</span> <span class="p">(</span><span class="k">function </span><span class="p">|</span> <span class="k">class</span><span class="p">)</span> <span class="p">[</span><span class="k">params</span><span class="p">]</span> <span class="p">|</span> <span class="k">variable </span><span class="p">|</span> <span class="k">param_ref</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="k">chain       </span><span class="err">::=</span> <span class="k">chain_head </span><span class="p">{</span> <span class="p">(</span><span class="k">function </span><span class="p">|</span> <span class="k">class</span><span class="p">)</span> <span class="p">[</span><span class="k">params</span><span class="p">]</span> <span class="p">|</span> <span class="k">variable </span><span class="p">|</span> <span class="k">param_ref </span><span class="p">}</span>
+</code></pre></div>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>f(add_get)(path:str, handler:func)-&gt;bool-adds a new GET route
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>c(Router)(base_path:str)-creates a new router with a base path
+</code></pre></div>
+<h3 id="111-rule-parameters-end-the-chain">11.1 Rule: Parameters End the Chain<a class="headerlink" href="#111-rule-parameters-end-the-chain" title="Permanent link">&para;</a></h3>
+<p>When parameters are defined on an object in a chain, that object is considered the <strong>final target</strong> of the statement, and the chain ends there. After an object with parameters, no other member may be added to the chain.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="k">chain </span><span class="err">::</span><span class="o">=</span> <span class="k">object </span><span class="p">{</span> <span class="k">object </span><span class="p">}</span> <span class="p">|</span> <span class="k">object params</span>
+</code></pre></div>
+<p><strong>Correct:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>c(Router)(base_path:str)-creates a new router with a base path
+</code></pre></div>
+<p><strong>Incorrect:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>c(Router)(base_path:str)f(create_router)-creates a new router with a base path
+</code></pre></div>
+<p>To describe a method with parameters, the parameters must be placed on the method itself:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>c(Router)f(create_router)(base_path:str)-creates a new router with a base path
+</code></pre></div>
+<h3 id="112-constraint-v-cannot-take-parameters">11.2 Constraint: <code>v()</code> Cannot Take Parameters<a class="headerlink" href="#112-constraint-v-cannot-take-parameters" title="Permanent link">&para;</a></h3>
+<p>Only <code>f()</code> and <code>c()</code> may be followed by a <code>params</code> list. <code>v()</code> refers to a variable, not something invoked with arguments, so giving it a parameter list has no meaning — the same reasoning that excludes <code>p()</code> (section 5.2).</p>
+<p><strong>Correct:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>c(Cart)v(total)-&gt;float-the current total price of the cart
+</code></pre></div>
+<p><strong>Incorrect:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>c(Cart)v(total)(currency:str)-&gt;float-the current total price of the cart
+</code></pre></div>
+<p>This restricts <code>params</code> specifically; it does not restrict chaining. <code>v()</code> can still be followed by other objects in a chain under the Composition/Output relationship (section 4.1) — for example, <code>f(login)v(user)</code> remains valid, since no <code>params</code> list is involved.</p>
+<hr />
+<h2 id="12-complete-grammar">12. Complete Grammar<a class="headerlink" href="#12-complete-grammar" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="k">document     </span><span class="err">::</span><span class="o">=</span> <span class="p">{</span> <span class="k">line </span><span class="p">}</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="k">line         </span><span class="err">::=</span> <span class="p">[</span> <span class="k">statement </span><span class="p">]</span> <span class="p">[</span> <span class="k">comment </span><span class="p">]</span> <span class="k">NEWLINE</span>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="k">comment      </span><span class="err">::=</span> <span class="s2">&quot;#&quot;</span> <span class="p">{</span> <span class="k">any_char_except_newline </span><span class="p">}</span>
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="k">statement    </span><span class="err">::=</span> <span class="k">async_marker </span><span class="p">|</span> <span class="k">if_stmt </span><span class="p">|</span> <span class="k">for_stmt </span><span class="p">|</span> <span class="k">while_stmt</span>
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>               <span class="p">|</span> <span class="k">use_stmt </span><span class="p">|</span> <span class="k">ret_stmt</span>
+<a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>               <span class="p">|</span> <span class="k">description </span><span class="p">|</span> <span class="k">output </span><span class="p">|</span> <span class="k">output_desc </span><span class="p">|</span> <span class="k">error_desc</span>
+<a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>
+<a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a><span class="k">async_marker </span><span class="err">::=</span> <span class="s2">&quot;async&quot;</span> <span class="k">chain</span>
+<a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a>
+<a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a><span class="k">if_stmt      </span><span class="err">::=</span> <span class="s2">&quot;if&quot;</span> <span class="k">condition </span><span class="s2">&quot;-&gt;&quot;</span> <span class="k">body</span>
+<a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a><span class="k">for_stmt     </span><span class="err">::=</span> <span class="s2">&quot;for&quot;</span> <span class="k">identifier </span><span class="s2">&quot;in&quot;</span> <span class="k">iterable </span><span class="s2">&quot;-&gt;&quot;</span> <span class="k">body</span>
+<a id="__codelineno-37-14" name="__codelineno-37-14" href="#__codelineno-37-14"></a><span class="k">while_stmt   </span><span class="err">::=</span> <span class="s2">&quot;while&quot;</span> <span class="k">condition </span><span class="s2">&quot;-&gt;&quot;</span> <span class="k">body</span>
+<a id="__codelineno-37-15" name="__codelineno-37-15" href="#__codelineno-37-15"></a><span class="k">use_stmt     </span><span class="err">::=</span> <span class="s2">&quot;use&quot;</span> <span class="k">chain</span>
+<a id="__codelineno-37-16" name="__codelineno-37-16" href="#__codelineno-37-16"></a><span class="k">ret_stmt     </span><span class="err">::=</span> <span class="s2">&quot;ret&quot;</span> <span class="k">chain</span>
+<a id="__codelineno-37-17" name="__codelineno-37-17" href="#__codelineno-37-17"></a>
+<a id="__codelineno-37-18" name="__codelineno-37-18" href="#__codelineno-37-18"></a><span class="k">condition    </span><span class="err">::=</span> <span class="k">use_stmt </span><span class="p">|</span> <span class="k">expression</span>
+<a id="__codelineno-37-19" name="__codelineno-37-19" href="#__codelineno-37-19"></a><span class="k">body         </span><span class="err">::=</span> <span class="k">text </span><span class="p">|</span> <span class="k">statement </span><span class="p">|</span> <span class="k">NEWLINE INDENT statement DEDENT</span>
+<a id="__codelineno-37-20" name="__codelineno-37-20" href="#__codelineno-37-20"></a>
+<a id="__codelineno-37-21" name="__codelineno-37-21" href="#__codelineno-37-21"></a><span class="k">description  </span><span class="err">::=</span> <span class="k">chain </span><span class="s2">&quot;-&quot;</span> <span class="k">text</span>
+<a id="__codelineno-37-22" name="__codelineno-37-22" href="#__codelineno-37-22"></a><span class="k">output       </span><span class="err">::=</span> <span class="k">chain </span><span class="s2">&quot;-&gt;&quot;</span> <span class="k">type</span>
+<a id="__codelineno-37-23" name="__codelineno-37-23" href="#__codelineno-37-23"></a><span class="k">output_desc  </span><span class="err">::=</span> <span class="k">chain </span><span class="s2">&quot;-&gt;&quot;</span> <span class="k">type </span><span class="s2">&quot;-&quot;</span> <span class="k">text</span>
+<a id="__codelineno-37-24" name="__codelineno-37-24" href="#__codelineno-37-24"></a><span class="k">error_desc   </span><span class="err">::=</span> <span class="k">chain </span><span class="s2">&quot;!-&quot;</span> <span class="k">text</span>
+<a id="__codelineno-37-25" name="__codelineno-37-25" href="#__codelineno-37-25"></a>
+<a id="__codelineno-37-26" name="__codelineno-37-26" href="#__codelineno-37-26"></a><span class="k">chain        </span><span class="err">::=</span> <span class="k">chain_head </span><span class="p">{</span> <span class="k">chain_member </span><span class="p">}</span>
+<a id="__codelineno-37-27" name="__codelineno-37-27" href="#__codelineno-37-27"></a><span class="k">chain_head   </span><span class="err">::=</span> <span class="k">chain_member</span>
+<a id="__codelineno-37-28" name="__codelineno-37-28" href="#__codelineno-37-28"></a><span class="k">chain_member </span><span class="err">::=</span> <span class="p">(</span><span class="k">function </span><span class="p">|</span> <span class="k">class</span><span class="p">)</span> <span class="p">[</span><span class="k">params</span><span class="p">]</span> <span class="p">|</span> <span class="k">variable </span><span class="p">|</span> <span class="k">param_ref  </span><span class="p">;</span> <span class="k">only function</span><span class="err">/</span><span class="k">class may carry </span><span class="err">`</span><span class="k">params</span><span class="err">`</span> <span class="err">(</span><span class="k">sections 5</span><span class="err">.2,</span> <span class="err">11.2)</span>
+<a id="__codelineno-37-29" name="__codelineno-37-29" href="#__codelineno-37-29"></a>
+<a id="__codelineno-37-30" name="__codelineno-37-30" href="#__codelineno-37-30"></a><span class="k">object       </span><span class="err">::</span><span class="o">=</span> <span class="k">function </span><span class="p">|</span> <span class="k">class </span><span class="p">|</span> <span class="k">variable </span><span class="p">|</span> <span class="k">param_ref</span>
+<a id="__codelineno-37-31" name="__codelineno-37-31" href="#__codelineno-37-31"></a><span class="k">function     </span><span class="err">::=</span> <span class="s2">&quot;f(&quot;</span> <span class="k">identifier </span><span class="s2">&quot;)&quot;</span>
+<a id="__codelineno-37-32" name="__codelineno-37-32" href="#__codelineno-37-32"></a><span class="k">class        </span><span class="err">::=</span> <span class="s2">&quot;c(&quot;</span> <span class="k">identifier </span><span class="s2">&quot;)&quot;</span>
+<a id="__codelineno-37-33" name="__codelineno-37-33" href="#__codelineno-37-33"></a><span class="k">variable     </span><span class="err">::=</span> <span class="s2">&quot;v(&quot;</span> <span class="k">identifier </span><span class="s2">&quot;)&quot;</span>
+<a id="__codelineno-37-34" name="__codelineno-37-34" href="#__codelineno-37-34"></a><span class="k">param_ref    </span><span class="err">::=</span> <span class="s2">&quot;p(&quot;</span> <span class="k">identifier </span><span class="s2">&quot;)&quot;</span>
+<a id="__codelineno-37-35" name="__codelineno-37-35" href="#__codelineno-37-35"></a>
+<a id="__codelineno-37-36" name="__codelineno-37-36" href="#__codelineno-37-36"></a><span class="k">params       </span><span class="err">::=</span> <span class="s2">&quot;(&quot;</span> <span class="p">[</span><span class="k">param </span><span class="p">{</span><span class="s2">&quot;,&quot;</span> <span class="k">param</span><span class="p">}]</span> <span class="s2">&quot;)&quot;</span>
+<a id="__codelineno-37-37" name="__codelineno-37-37" href="#__codelineno-37-37"></a><span class="k">param        </span><span class="err">::=</span> <span class="k">identifier </span><span class="s2">&quot;:&quot;</span> <span class="k">type</span>
+<a id="__codelineno-37-38" name="__codelineno-37-38" href="#__codelineno-37-38"></a><span class="k">type         </span><span class="err">::=</span> <span class="k">identifier </span><span class="p">[</span> <span class="s2">&quot;(&quot;</span> <span class="k">type </span><span class="p">{</span><span class="s2">&quot;,&quot;</span> <span class="k">type</span><span class="p">}</span> <span class="s2">&quot;)&quot;</span> <span class="p">]</span>
+<a id="__codelineno-37-39" name="__codelineno-37-39" href="#__codelineno-37-39"></a>
+<a id="__codelineno-37-40" name="__codelineno-37-40" href="#__codelineno-37-40"></a><span class="k">identifier   </span><span class="err">::=</span> <span class="k">letter </span><span class="p">{</span> <span class="k">letter </span><span class="p">|</span> <span class="k">digit </span><span class="p">|</span> <span class="s2">&quot;_&quot;</span> <span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="13-validator-implementation-guide-optional">13. Validator Implementation Guide (Optional)<a class="headerlink" href="#13-validator-implementation-guide-optional" title="Permanent link">&para;</a></h2>
+<p>DocScript is designed to be used without any tools. If you need to build a Validator or Linter, the recommended parsing order for a statement is:</p>
+<ol>
+<li>Strip comments: remove everything from an unescaped <code>#</code> to the end of the line before any further processing (section 2).</li>
+<li>Check for <code>async</code> at the beginning of the statement.</li>
+<li>Check for control-structure keywords (<code>if</code>, <code>for</code>, <code>while</code>, <code>use</code>, <code>ret</code>) at the beginning of the statement.</li>
+<li>Search for the object chain (<code>chain</code>) by separating <code>object</code> — including <code>p()</code> parameter references, which parse identically to <code>f()</code>, <code>c()</code>, and <code>v()</code> — and <code>params</code> according to section 11.</li>
+<li>Reject any <code>p()</code> or <code>v()</code> that is immediately followed by a <code>params</code> list (sections 5.2, 11.2).</li>
+<li>Search for the <code>-&gt;</code> operator before an independent <code>-</code>, to distinguish <code>output</code> from <code>description</code>.</li>
+<li>Search for the <code>!-</code> operator and enforce the "one <code>!-</code> per statement" limitation (section 9.1).</li>
+<li>Enforce the "parameters end the chain" rule (section 11.1) to reject invalid chains.</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      MIT License
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "navigation.expand", "content.code.copy", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
